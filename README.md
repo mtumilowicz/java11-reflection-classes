@@ -39,3 +39,8 @@ but we **can't:**
     * add a new field or a method
 * change the method execution or add a new method (behavioral intercession)
 
+# project description
+We will show how to obtain basic info about class (such as
+modifiers, implemented interfaces, etc.).
+
+
