@@ -71,8 +71,8 @@ All tests are in `reflection.ClassReflection` class:
     assertEquals(Modifier.toString(childClass.getModifiers() & Modifier.classModifiers()), "public abstract");
     ```
     * `int getModifiers()` - returns modifiers as int (https://github.com/mtumilowicz/java11-ORed-container)
-    * `int classModifiers()` - returns possible modifiers for class; note, that
-    we have also methods:
+    * `int classModifiers()` - returns possible modifiers for class;  
+    note, that we have other similar methods:
         * `interfaceModifiers()`
         * `constructorModifiers()`
         * `methodModifiers()`
@@ -96,13 +96,17 @@ All tests are in `reflection.ClassReflection` class:
     ```
     assertEquals(childClass.getSuperclass(), Parent.class);
     ```
+    if the only superclass is `Object` the method returns null
     ```
     assertNull(Parent.class.getSuperclass());
     ```
 * interfaces
+
+    only interfaces explicitly declared (inherited are not returned)
     ```
     assertArrayEquals(childClass.getInterfaces(), new Class<?>[]{ChildInterface.class, Serializable.class});
     ```
+    if there is no interfaces, the array is empty
     ```
     assertArrayEquals(Object.class.getInterfaces(), new Class<?>[]{});
     ```
@@ -110,6 +114,7 @@ All tests are in `reflection.ClassReflection` class:
     ```
     assertEquals(Arrays.toString(childClass.getTypeParameters()), "[T]");
     ```
+    if there is no type parameters, the array is empty
     ```
     var typeParameters = childClass.getTypeParameters();
     assertEquals(typeParameters.length, 0);
