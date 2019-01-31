@@ -65,11 +65,21 @@ modifiers, implemented interfaces, etc.).
         public interface ParentInterface {
         }
         ```
-All tests are in `reflection.ClassReflection` class
+All tests are in `reflection.ClassReflection` class:
 * modifiers
     ```
     assertEquals(Modifier.toString(childClass.getModifiers() & Modifier.classModifiers()), "public abstract");
     ```
+    * `int getModifiers()` - returns modifiers as int (https://github.com/mtumilowicz/java11-ORed-container)
+    * `int classModifiers()` - returns possible modifiers for class; note, that
+    we have also methods:
+        * `interfaceModifiers()`
+        * `constructorModifiers()`
+        * `methodModifiers()`
+        * `fieldModifiers()`
+        * `parameterModifiers()` (since java 8)
+    * `Modifier.toString(int mod)` converts from int to
+    string representation
 * all modifiers (since java 8)
     ```
     assertEquals(childClass.toGenericString(), "public abstract class child.Child<T>");
