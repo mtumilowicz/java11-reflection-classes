@@ -43,7 +43,12 @@ but we **can't:**
 We will show how to obtain basic info about class (such as
 modifiers, implemented interfaces, etc.).
 
-1. We have simple class hierarchy:
+1. We have simple class hierarchy in module family:
+    * module-info
+        ```
+        module family {
+        }
+        ```
     * parent
         ```
         public class Parent implements ParentInterface {
