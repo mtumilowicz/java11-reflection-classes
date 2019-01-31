@@ -60,4 +60,59 @@ modifiers, implemented interfaces, etc.).
         public interface ParentInterface {
         }
         ```
-* 
+All tests are in `reflection.ClassReflection` class
+* modifiers
+    ```
+    assertEquals(Modifier.toString(childClass.getModifiers() & Modifier.classModifiers()), "public abstract");
+    ```
+* all modifiers (since java 8)
+    ```
+    assertEquals(childClass.toGenericString(), "public abstract class child.Child<T>");
+    ```
+* name
+    ```
+    assertEquals(childClass.getName(), "child.Child");
+    ```
+* simple name
+    ```
+    assertEquals(childClass.getSimpleName(), "Child");
+    ```
+* superclass
+    ```
+    assertEquals(childClass.getSuperclass(), Parent.class);
+    ```
+    ```
+    assertNull(Parent.class.getSuperclass());
+    ```
+* interfaces
+    ```
+    assertArrayEquals(childClass.getInterfaces(), new Class<?>[]{ChildInterface.class, Serializable.class});
+    ```
+    ```
+    assertArrayEquals(Object.class.getInterfaces(), new Class<?>[]{});
+    ```
+* type parameters
+    ```
+    assertEquals(Arrays.toString(childClass.getTypeParameters()), "[T]");
+    ```
+    ```
+    var typeParameters = childClass.getTypeParameters();
+    assertEquals(typeParameters.length, 0);
+    ```
+* package name
+    ```
+    assertEquals(childClass.getPackageName(), "child");
+    ```
+* module name
+    * in tests:
+        ```
+        assertTrue(childClass.getModule().toString().contains("unnamed module"));
+        assertNull(childClass.getModule().getName());
+        ```
+    * in main:
+        ```
+        public static void main(String[] args) {
+                System.out.println(Child.class.getModule().getName());
+        }
+        ```
+        will print: family
