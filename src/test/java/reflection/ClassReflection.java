@@ -1,4 +1,4 @@
-package child;
+package reflection;
 
 import org.junit.jupiter.api.Test;
 import parent.Parent;
@@ -32,18 +32,34 @@ class ClassReflection {
     }
     
     @Test
-    void superclass() {
-        assertEquals(childClass.getSuperclass(), Parent.class); // if no superclass other than object => null
+    void superclass_notObject() {
+        assertEquals(childClass.getSuperclass(), Parent.class);
     }
     
     @Test
-    void interfaces() {
+    void superclass_object() {
+        assertNull(Parent.class.getSuperclass());
+    }
+    
+    @Test
+    void interfaces_notEmpty() {
         assertArrayEquals(childClass.getInterfaces(), new Class<?>[]{ChildInterface.class, Serializable.class});
     }
+
+    @Test
+    void interfaces_empty() {
+        assertArrayEquals(Object.class.getInterfaces(), new Class<?>[]{});
+    }
     
     @Test
-    void typeParameters() {
+    void typeParameters_notEmpty() {
         assertEquals(Arrays.toString(childClass.getTypeParameters()), "[T]");
+    }
+
+    @Test
+    void typeParameters_empty() {
+        var typeParameters = childClass.getTypeParameters();
+        assertEquals(typeParameters.length, 0);
     }
     
     @Test
