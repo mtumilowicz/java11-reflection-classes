@@ -33,14 +33,31 @@ Intercession is supported in very limited way, we can:
 * create an instance of a class whose name is not known
   in the compile-time
 * invoke methods
-* get/set fields  
+* get/set fields
+
 but we **can't:**
-* change the data structure at runtime:
-    * add a new field or a method
-* change the method execution or add a new method (behavioral intercession)
+* change the data structure at runtime (add a new field or a method):
+* change the method execution (behavioral intercession)
 
 # project description
 We will show how to obtain basic info about class (such as
 modifiers, implemented interfaces, etc.).
 
-
+1. We have simple class hierarchy:
+    * parent
+        ```
+        public class Parent implements ParentInterface {
+        }
+        
+        public interface ParentInterface {
+        }
+        ```
+    * child
+        ```
+        public abstract class Child<T> extends Parent implements ChildInterface, Serializable {
+        }
+        
+        public interface ParentInterface {
+        }
+        ```
+* 
