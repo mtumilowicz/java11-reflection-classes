@@ -1,7 +1,7 @@
 # java11-reflection-classes
 Class descriptors obtained via reflection.
 
-_Reference_: 
+_Reference_: https://www.amazon.com/Java-Language-Features-Modules-Expressions/dp/1484233476
 
 # reflection
 ## preface
