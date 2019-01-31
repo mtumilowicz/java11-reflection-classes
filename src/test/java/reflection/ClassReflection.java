@@ -1,5 +1,7 @@
 package reflection;
 
+import child.Child;
+import child.ChildInterface;
 import org.junit.jupiter.api.Test;
 import parent.Parent;
 
