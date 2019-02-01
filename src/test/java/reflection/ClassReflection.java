@@ -40,7 +40,8 @@ class ClassReflection {
     
     @Test
     void superclass_object() {
-        assertNull(Parent.class.getSuperclass());
+        assertNull(Object.class.getSuperclass());
+        assertEquals(Parent.class.getSuperclass(), Object.class);
     }
     
     @Test
@@ -60,7 +61,7 @@ class ClassReflection {
 
     @Test
     void typeParameters_empty() {
-        var typeParameters = childClass.getTypeParameters();
+        var typeParameters = Object.class.getTypeParameters();
         assertEquals(typeParameters.length, 0);
     }
     
