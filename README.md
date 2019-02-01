@@ -63,9 +63,13 @@ All tests are in `reflection.ClassReflection` class:
     ```
     assertEquals(childClass.getSuperclass(), Parent.class);
     ```
-    * if the only superclass is `Object` the method returns null
+    * if there is no explicit superclasses and class differs from `Object.class`
         ```
-        assertNull(Parent.class.getSuperclass());
+        assertEquals(Parent.class.getSuperclass(), Object.class);
+        ```
+    * superclass of `Object.class` is `null`
+        ```
+        assertNull(Object.class.getSuperclass());
         ```
 * interfaces
 
@@ -83,7 +87,7 @@ All tests are in `reflection.ClassReflection` class:
     ```
     * if there is no type parameters, the array is empty
         ```
-        var typeParameters = childClass.getTypeParameters();
+        var typeParameters = Object.class.getTypeParameters();
         assertEquals(typeParameters.length, 0);
         ```
 * package name
