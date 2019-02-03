@@ -32,7 +32,7 @@ modifiers, implemented interfaces, etc.).
         public interface ParentInterface {
         }
         ```
-All tests are in `reflection.ClassReflection` class:
+All tests are in `reflection.ClassReflectionTest` class:
 * modifiers
     ```
     assertEquals(Modifier.toString(childClass.getModifiers() & Modifier.classModifiers()), "public abstract");
