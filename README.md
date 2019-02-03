@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.com/mtumilowicz/java11-reflection-classes.svg?token=PwyvjePQ7aiAX51hSYLE&branch=master)](https://travis-ci.com/mtumilowicz/java11-reflection-classes)
 
 # java11-reflection-classes
-Class descriptors obtained via reflection.
+Using reflection to get the description of a class.
 
 # preface
 https://github.com/mtumilowicz/java-reflection
