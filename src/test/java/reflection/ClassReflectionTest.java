@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Created by mtumilowicz on 2019-01-30.
  */
-class ClassReflection {
+class ClassReflectionTest {
 
     private Class<Child> childClass = Child.class;
     
